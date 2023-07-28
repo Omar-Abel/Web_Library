@@ -10,8 +10,8 @@
   <meta content="libros, librerias, autores, libro, autor, gratis" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/libros.png" rel="icon">
+  <link href="assets/img/libros.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -41,7 +41,11 @@
 
 <body>
 
-
+<?php 
+  include("books.php");
+  include("authors.php");
+  include("contacs.php")
+?>
 
 
   <!-- ======= Header ======= -->
@@ -50,8 +54,7 @@
       <div class="header-container d-flex align-items-center justify-content-between">
         <div class="logo">
           <h1 class="text-light"><a href="index.html"><span>Libreria Universal</span></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
         </div>
 
         <nav id="navbar" class="navbar">
@@ -91,10 +94,7 @@
               <li><i class="ri-check-double-line"></i> Exposición de todos los autores de tus libros favoritos</li>
 
             </ul>
-            <!-- <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p> -->
+
           </div>
         </div>
 
@@ -107,7 +107,7 @@
       <div class="container">
       </div>
     </section>
-    <!-- End Counts Section -->
+
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -120,28 +120,15 @@
           <p>Galeria con todos los libros que tenemos disponibles, los cuales tenemos de una gran variedad de categorias y tipos</p>
         </div>
 
-        <!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div> -->
-
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
           <?php
-          include("books.php");
           $conBooks = new Books();
           $books = $conBooks->getBooks();
-
           foreach ($books as $book):
           ?>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="<?php echo $book['imagen'] ?>" class="img-fluid" alt="">
               <div class="portfolio-info">
@@ -180,107 +167,24 @@
           <div class="col-lg-12">
             <div class="row">
 
+              <?php 
+              $conAuthors = new Authors();
+              $authors = $conAuthors->getAuthors();
+              foreach ($authors as $author):
+              ?>
               <div class="col-lg-6">
                 <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                  <div class="pic"><img src="<?php echo $author['imagen'] ?>" class="img-fluid" alt=""></div>
                   <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
+                    <h4><?php echo $author['nombre']. " " . $author['apellido'] ?></h4>
+                    <span><?php echo $author['pais']?></span>
+                    <p><?php echo $author['libros'] ?> </p>
+
                   </div>
                 </div>
               </div>
 
-              <div class="col-lg-6">
-                <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6 mt-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
-                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6 mt-4">
-                <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                    <div class="social">
-                      <a href=""><i class="ri-twitter-fill"></i></a>
-                      <a href=""><i class="ri-facebook-fill"></i></a>
-                      <a href=""><i class="ri-instagram-fill"></i></a>
-                      <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <?php endforeach; ?>
 
             </div>
 
@@ -302,13 +206,13 @@
           <div class="col-lg-4" data-aos="fade-right">
             <div class="section-title">
               <h2>Contact</h2>
-              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              <p>Si tienes alguna pregunta sobre nuestro catálogo de libros, necesitas asistencia para encontrar un título específico o simplemente deseas compartir tus comentarios, ¡estamos aquí para ayudarte! Nuestro equipo de atención al cliente altamente capacitado está listo para responder a tus inquietudes y brindarte la mejor experiencia posible.</p>
             </div>
           </div>
 
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+            <form action="form.php" method="post" role="form" class="php-email-form mt-4">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -321,12 +225,12 @@
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="20" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" id="message" rows="20" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
+                <div class="loading"></div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message"></div> 
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
@@ -350,11 +254,7 @@
           &copy; Copyright <strong><span>Libreria Universal</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Designed by <a href="https://github.com/Omar-Abel/Web_Library">Omar Lora</a>
         </div>
       </div>
   </footer>

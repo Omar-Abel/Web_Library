@@ -764,7 +764,7 @@ section.about {
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
-  width: auto;
+  max-width: 400px;
   height: auto;
 }
 
@@ -1173,10 +1173,10 @@ section.about {
   padding-bottom: 8px;
 }
 
-.contact .php-email-form .error-message {
+/* .contact .php-email-form .error-message {
   display: none;
   color: #fff;
-  background: #ed3c0d;
+  background: #18d26e;
   text-align: left;
   padding: 15px;
   font-weight: 600;
@@ -1193,9 +1193,9 @@ section.about {
   text-align: center;
   padding: 15px;
   font-weight: 600;
-}
+} */
 
-.contact .php-email-form .loading {
+/* .contact .php-email-form .loading {
   display: none;
   background: #fff;
   text-align: center;
@@ -1211,8 +1211,8 @@ section.about {
   margin: 0 10px -6px 0;
   border: 3px solid #18d26e;
   border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
+  animation: animate-loading 5s linear;
+} */
 
 .contact .php-email-form input,
 .contact .php-email-form textarea {
@@ -1235,6 +1235,8 @@ section.about {
   padding: 10px 30px;
   color: #fff;
   transition: 0.4s;
+
+
   border-radius: 50px;
 }
 
@@ -1242,7 +1244,7 @@ section.about {
   background: #00805d;
 }
 
-@keyframes animate-loading {
+/* @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
   }
@@ -1250,7 +1252,12 @@ section.about {
   100% {
     transform: rotate(360deg);
   }
-}
+
+  
+
+
+
+} */
 
 /*--------------------------------------------------------------
 # Breadcrumbs

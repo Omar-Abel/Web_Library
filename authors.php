@@ -11,7 +11,7 @@ class Authors extends ConnectionDB{
 
   }
 
-  public function getBooks(){
+  public function getAuthors(){
     $sql = "SELECT * FROM autores";
     $execute = $this->conn->query($sql);
     $request = $execute->fetchall(PDO::FETCH_ASSOC);
