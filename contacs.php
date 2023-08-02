@@ -26,7 +26,7 @@ include_once("con_db.php");
       $sql = "INSERT INTO contactos (fecha, correo, nombre, asunto, comentario) VALUES (?, ?, ?, ?, ?)";
       $result = $this->conn->prepare($sql);
       $result->execute([$this->date, $this->email, $this->name, $this->subject, $this->mesagge]);
-      echo "</h1>¡Mensaje enviado! (Por alguna razon PHP detecta un error el cual no existe, ya que se envio el mensaje)</h1>";
+      echo '<h5 style="color: #00805d!important;">El mensaje se ha enviado!</h5>';
     }
 
     }

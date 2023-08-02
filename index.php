@@ -41,11 +41,11 @@
 
 <body>
 
-<?php 
+  <?php
   include("books.php");
   include("authors.php");
   include("contacs.php")
-?>
+  ?>
 
 
   <!-- ======= Header ======= -->
@@ -125,23 +125,23 @@
           <?php
           $conBooks = new Books();
           $books = $conBooks->getBooks();
-          foreach ($books as $book):
+          foreach ($books as $book) :
           ?>
 
-          <div class="portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="<?php echo $book['imagen'] ?>" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><?php echo $book['titulo'] ?></h4>
-                <p><?php echo $book['autor'] ?></p>
-                <div class="portfolio-links">
-                  <a href="<?php echo $book['imagen'] ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $book['descripcion']?> <br><br> <b>Categorias: </b><?php echo $book['categoria']?> "><i class="bx bx-plus"></i></a>
-                  <a href="<?php echo $book['link'] ?>" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
+            <div class="portfolio-item filter-app">
+              <div class="portfolio-wrap">
+                <img src="<?php echo $book['imagen'] ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4><?php echo $book['titulo'] ?></h4>
+                  <p><?php echo $book['autor'] ?></p>
+                  <div class="portfolio-links">
+                    <a href="<?php echo $book['imagen'] ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $book['descripcion'] ?> <br><br> <b>Categorias: </b><?php echo $book['categoria'] ?> "><i class="bx bx-plus"></i></a>
+                    <a href="<?php echo $book['link'] ?>" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        <?php endforeach; ?>
+          <?php endforeach; ?>
         </div>
       </div>
     </section><!-- End Portfolio Section -->
@@ -167,22 +167,22 @@
           <div class="col-lg-12">
             <div class="row">
 
-              <?php 
+              <?php
               $conAuthors = new Authors();
               $authors = $conAuthors->getAuthors();
-              foreach ($authors as $author):
+              foreach ($authors as $author) :
               ?>
-              <div class="col-lg-6">
-                <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="<?php echo $author['imagen'] ?>" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4><?php echo $author['nombre']. " " . $author['apellido'] ?></h4>
-                    <span><?php echo $author['pais']?></span>
-                    <p><?php echo $author['libros'] ?> </p>
+                <div class="col-lg-6">
+                  <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="pic"><img src="<?php echo $author['imagen'] ?>" class="img-fluid" alt=""></div>
+                    <div class="member-info">
+                      <h4><?php echo $author['nombre'] . " " . $author['apellido'] ?></h4>
+                      <span><?php echo $author['pais'] ?></span>
+                      <p><?php echo $author['libros'] ?> </p>
 
+                    </div>
                   </div>
                 </div>
-              </div>
 
               <?php endforeach; ?>
 
@@ -205,7 +205,7 @@
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
             <div class="section-title">
-              <h2>Contact</h2>
+              <h2>Contacto</h2>
               <p>Si tienes alguna pregunta sobre nuestro catálogo de libros, necesitas asistencia para encontrar un título específico o simplemente deseas compartir tus comentarios, ¡estamos aquí para ayudarte! Nuestro equipo de atención al cliente altamente capacitado está listo para responder a tus inquietudes y brindarte la mejor experiencia posible.</p>
             </div>
           </div>
@@ -228,9 +228,9 @@
                 <textarea class="form-control" name="message" id="message" rows="20" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading"></div>
-                <div class="error-message"></div>
-                <div class="sent-message"></div> 
+                <div class="loading" style="color: white;"></div>
+                <div class="error-message" style="color: white;"></div>
+                <div class="sent-message"></div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
